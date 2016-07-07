@@ -54,7 +54,9 @@ RUN build_packages="wget build-base ca-certificates linux-headers openssl-dev pc
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
-add nginx.conf /etc/nginx/nginx.conf
+ADD nginx.conf /etc/nginx/nginx.conf
+ADD default /etc/nginx/sites-enabled/
+ADD default.html /var/www/default_html/index.html
 
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
