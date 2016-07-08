@@ -1,4 +1,4 @@
 server {
     listen 80 default_server;
-    root /var/www/default_html;
+    root /var/www/html;
 }

@@ -23,7 +23,7 @@ RUN build_packages="wget build-base ca-certificates linux-headers openssl-dev pc
  && gunzip GeoIP.dat.gz \
  && mkdir /usr/local/share/GeoIP/ \
  && mv GeoIP.dat /usr/local/share/GeoIP/ \
- && echo "adding /usr/local/share/GeoIP/GeoIP.dat database" \
+ && echo 'adding /usr/local/share/GeoIP/GeoIP.dat database' \
     # install nginx:
  && wget http://nginx.org/download/${NGINX_VERSION}.tar.gz \
  && tar -zxvf ${NGINX_VERSION}.tar.gz \
@@ -56,7 +56,7 @@ RUN ln -sf /dev/stderr /var/log/nginx/error.log
 
 ADD nginx.conf /etc/nginx/nginx.conf
 ADD default /etc/nginx/sites-enabled/
-ADD default.html /var/www/default_html/index.html
+ADD default.html /var/www/html/index.html
 
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
